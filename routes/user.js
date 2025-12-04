@@ -5,9 +5,9 @@ import { forgetPasswordSchema, loginSchema, registerSchema, resetPasswordSchema 
 const userRouter = express.Router()
 
 userRouter.post('/registerUser',validataRegister(registerSchema),registerUser)
-userRouter.get('/loginUser',validataRegister(loginSchema),loginUser)
-userRouter.get('/forgetPassword',validataRegister(forgetPasswordSchema),forgetPassword)
-userRouter.get('/otpVerify',otpVerify)
-userRouter.get('/resetPassword',validataRegister(resetPasswordSchema),resetPassword)
+userRouter.post('/loginUser',validataRegister(loginSchema),loginUser)
+userRouter.post('/forgetPassword',validataRegister(forgetPasswordSchema),forgetPassword)
+userRouter.post('/otpVerify',otpVerify)
+userRouter.post('/resetPassword',validataRegister(resetPasswordSchema),resetPassword)
 
 export default userRouter

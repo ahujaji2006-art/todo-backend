@@ -19,16 +19,6 @@ export const registerSchema = Joi.object({
       "string.min": "Password must be at least 2 characters",
       "any.required": "Password is required",
     }),
-  
-    age: Joi.number().integer().required().messages({
-      "number.base": "Age must be a number",
-      "any.required": "Age is required",
-    }),
-  
-    role: Joi.string().valid("USER", "ADMIN").required().messages({
-      "any.only": "Role must be USER or ADMIN",
-      "any.required": "Role is required",
-    }),
   });
 
 export const loginSchema = Joi.object({

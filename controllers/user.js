@@ -16,7 +16,7 @@ export async function registerUser(req, res) {
     const token = JWT.sign(
       {
         id: user._id,
-        email: user.name,
+        email: user.email,
       },
       process.env.SECRET
     );

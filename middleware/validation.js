@@ -1,13 +1,14 @@
-export const validataRegister = (schema)=>{
-    return (req,res,next) => {
-        const data ={...req.body,...req.query}
-        const {error} = schema.validate(data)
+export const validataRegister = (schema) => {
+  return (req, res, next) => {
+    const { error, value } = schema.validate(req.body);
 
-        if(error){
-            return res.status(400).json({
-                error:error.deatil[0].message
-            })
-        }
-        next()
+    if (error) {
+      return res.status(400).json({
+        error: error.details[0].message,
+      });
     }
-}
+
+    req.body = value;
+    next();
+  };
+};
