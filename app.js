@@ -3,6 +3,7 @@ import "dotenv/config"
 import { connectMongoDB } from "./connection.js";
 import userRouter from "./routes/user.js";
 import cors from "cors"
+import todoRouter from "./routes/todo.js";
 
 const app = express()
 app.use(cors({
@@ -14,5 +15,6 @@ connectMongoDB(process.env.MONGO_DB)
 
 app.use(express.json())
 app.use('/user',userRouter)
+app.use('/todo',todoRouter)
 
 app.listen(PORT,()=>{console.log(`http://localhost:${PORT}`)})
